@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_title %}Order Total{% endblock page_title %}
+
+{% block content %}
+    <form action="{% url "order_total" %}">
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+    
+    {% if total %}
+        <p>Your total will be ${{ total }}</p>
+    {% endif %}
+
+{% endblock content %}

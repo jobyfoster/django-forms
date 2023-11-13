@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_title %}How Old{% endblock page_title %}
+
+{% block content %}
+    <form action="{% url "how_old" %}">
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+    
+    {% if age and end %}
+        <p>You will be {{ age }} years old in the year {{ end }}!</p>
+    {% endif %}
+
+{% endblock content %}

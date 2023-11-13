@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block page_title %}No Teen Sum{% endblock page_title %}
+
+{% block content %}
+
+    <form action="{% url "no_teen_sum" %}" method="get">
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+{% endblock content %}
