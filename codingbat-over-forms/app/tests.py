@@ -2,6 +2,20 @@ from django.test import SimpleTestCase
 
 
 # Create your tests here.
+class TestFontTimesView(SimpleTestCase):
+    def test_hi_3(self):
+        response = self.client.get("/font-times/?phrase=Hi&copies=3")
+        self.assertContains(response, "HiHiHi")
+
+    def test_there_4(self):
+        response = self.client.get("/font-times/?phrase=There&copies=4")
+        self.assertContains(response, "TheTheThe")
+
+    def test_hi_3(self):
+        response = self.client.get("/font-times/?phrase=d&copies=2")
+        self.assertContains(response, "dd")
+
+
 class TestCenteredAverageView(SimpleTestCase):
     def test_1_2_3_4_100(self):
         response = self.client.get(

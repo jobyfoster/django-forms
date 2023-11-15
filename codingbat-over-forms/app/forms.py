@@ -1,7 +1,7 @@
 from django import forms
 
 
-class FrontTimesForm(forms.Form):
+class FontTimesForm(forms.Form):
     phrase = forms.CharField()
     copies = forms.IntegerField(min_value=1)
 

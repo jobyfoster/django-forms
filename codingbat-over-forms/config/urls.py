@@ -20,7 +20,7 @@ from django.urls import path
 from app import views as app_views
 
 urlpatterns = [
-    path("front-times/", app_views.front_times_view, name="front_times"),
+    path("font-times/", app_views.font_times_view, name="font_times"),
     path("no-teen-sum/", app_views.no_teen_sum_view, name="no_teen_sum"),
     path("xyz-there/", app_views.xyz_there_view, name="xyz_there"),
     path("centered-average/", app_views.centered_average_view, name="centered_average"),

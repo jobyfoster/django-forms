@@ -2,14 +2,14 @@ from django.shortcuts import render
 from django.http.request import HttpRequest
 from django.http.response import HttpResponse
 
-from .forms import FrontTimesForm, NoTeenSumForm, XYZThereForm, CenteredAverageForm
+from .forms import FontTimesForm, NoTeenSumForm, XYZThereForm, CenteredAverageForm
 
 
 # Create your views here.
-def front_times_view(request: HttpRequest) -> HttpResponse:
-    form = FrontTimesForm()
+def font_times_view(request: HttpRequest) -> HttpResponse:
+    form = FontTimesForm()
     if request.GET:
-        form = FrontTimesForm(request.GET)
+        form = FontTimesForm(request.GET)
         if form.is_valid():
             phrase = form.cleaned_data["phrase"]
             copies = form.cleaned_data["copies"]
@@ -21,7 +21,7 @@ def front_times_view(request: HttpRequest) -> HttpResponse:
 
             return render(request, "result.html", context={"result": phrase})
 
-    return render(request, "front_times.html", context={"form": form})
+    return render(request, "font_times.html", context={"form": form})
 
 
 def no_teen_sum_view(request: HttpRequest) -> HttpResponse:

@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block page_title %}Front Times{% endblock page_title %}
+{% block page_title %}Font Times{% endblock page_title %}
 
 {% block content %}
 
-    <form action="{% url "front_times" %}" method="get">
+    <form action="{% url "font_times" %}" method="get">
         {{ form.as_p }}
         <button type="submit">Send</button>
     </form>
