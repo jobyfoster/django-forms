@@ -3,17 +3,17 @@ from django.test import SimpleTestCase
 
 # Create your tests here.
 class TestFontTimesView(SimpleTestCase):
-    def test_hi_3(self):
-        response = self.client.get("/warmup-2/font-times/?phrase=Hi&copies=3")
-        self.assertContains(response, "HiHiHi")
+    def test_chocolate_2(self):
+        response = self.client.get("/warmup-2/font-times/?phrase=Chocolate&copies=2")
+        self.assertContains(response, "ChoCho")
 
-    def test_there_4(self):
-        response = self.client.get("/warmup-2/font-times/?phrase=There&copies=4")
-        self.assertContains(response, "TheTheThe")
+    def test_chocolate_3(self):
+        response = self.client.get("/warmup-2/font-times/?phrase=Chocolate&copies=3")
+        self.assertContains(response, "ChoChoCho")
 
-    def test_hi_3(self):
-        response = self.client.get("/warmup-2/font-times/?phrase=d&copies=2")
-        self.assertContains(response, "dd")
+    def test_abc_3(self):
+        response = self.client.get("/warmup-2/font-times/?phrase=Abc&copies=3")
+        self.assertContains(response, "AbcAbcAbc")
 
 
 class TestCenteredAverageView(SimpleTestCase):
@@ -23,17 +23,17 @@ class TestCenteredAverageView(SimpleTestCase):
         )
         self.assertContains(response, 3)
 
-    def test_5_5_100_200_7(self):
+    def test_1_1_5_5_10_8_7(self):
         response = self.client.get(
-            "/list-2/centered-average/?num_one=5&num_two=5&num_three=100&num_four=200&num_five=7"
+            "/list-2/centered-average/?num_one=1&num_two=1&num_three=5&num_four=5&num_five=10&num_six=8&num_seven=7"
         )
-        self.assertContains(response, 37)
+        self.assertContains(response, 5)
 
-    def test_5_3_4_6_2(self):
+    def test_neg10_neg4_neg2_neg4_neg2_0(self):
         response = self.client.get(
-            "/list-2/centered-average/?num_one=5&num_two=3&num_three=4&num_four=6&num_five=2"
+            "/list-2/centered-average/?num_one=-10&num_two=-4&num_three=-2&num_four=-4&num_five=-2&num_six=0&num_seven="
         )
-        self.assertContains(response, 4)
+        self.assertContains(response, -3)
 
 
 class TestXYZThereView(SimpleTestCase):
@@ -46,23 +46,19 @@ class TestXYZThereView(SimpleTestCase):
         self.assertContains(response, False)
 
     def test_phrase_with_dot_xyz_and_xyz(self):
-        response = self.client.get("/string-2/xyz-there/?phrase='abc.xyzxyz")
+        response = self.client.get("/string-2/xyz-there/?phrase='xyz.abc")
         self.assertContains(response, True)
 
 
 class TestNoTeenSumView(SimpleTestCase):
-    def test_all_non_teen_values(self):
-        response = self.client.get("/logic-2/no-teen-sum/?a=5&b=3&c=8")
-        self.assertContains(response, 16)
+    def test_1_2_3(self):
+        response = self.client.get("/logic-2/no-teen-sum/?a=1&b=2&c=3")
+        self.assertContains(response, 6)
 
-    def test_some_teen_values(self):
-        response = self.client.get("/logic-2/no-teen-sum/?a=13&b=15&c=2")
-        self.assertContains(response, 17)
+    def test_2_13_1(self):
+        response = self.client.get("/logic-2/no-teen-sum/?a=2&b=13&c=1")
+        self.assertContains(response, 3)
 
-    def test_all_teen_values(self):
-        response = self.client.get("/logic-2/no-teen-sum/?a=14&b=18&c=19")
-        self.assertContains(response, 0)
-
-    def test_with_negative_values(self):
-        response = self.client.get("/logic-2/no-teen-sum/?a=-1&b=-5&c=-10")
-        self.assertContains(response, -16)
+    def test_2_1_14(self):
+        response = self.client.get("/logic-2/no-teen-sum/?a=2&b=1&c=14")
+        self.assertContains(response, 3)

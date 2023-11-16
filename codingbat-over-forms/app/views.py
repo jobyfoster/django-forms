@@ -92,8 +92,18 @@ def centered_average_view(request: HttpRequest) -> HttpResponse:
             num_three = form.cleaned_data["num_three"]
             num_four = form.cleaned_data["num_four"]
             num_five = form.cleaned_data["num_five"]
+            num_six = form.cleaned_data["num_six"]
+            num_seven = form.cleaned_data["num_seven"]
 
             nums = [num_one, num_two, num_three, num_four, num_five]
+
+            if form.cleaned_data["num_six"] != None:
+                num_six = form.cleaned_data["num_six"]
+                nums.append(num_six)
+
+            if form.cleaned_data["num_seven"] != None:
+                num_seven = form.cleaned_data["num_seven"]
+                nums.append(num_seven)
 
             nums.remove(max(nums))
             nums.remove(min(nums))
